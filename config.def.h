@@ -10,20 +10,20 @@ static const unsigned int gappov    = 32;       /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "LeagueMono-Bold:size=12" };
-static const char dmenufont[]       = "LeagueMono-Bold:size=14";
+static const char *fonts[]          = { "Cascadia_Code_Regular_Nerd_Font_Complete:size=12" };
+static const char dmenufont[]       = "Cascadia_Code_Regular_Nerd_Font_Complete:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_gray5[]       = "#28282A";
-static const char col_cyan[]        = "#00ECF9";
-static const unsigned int baralpha = 0xd0;
+static const char col_cyan[]        = "#6D6C7C";
+static const unsigned int baralpha = 0x80;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 /*               fg         bg         border   */
-[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray5, col_cyan,  "#AFD700"  },
+    [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+    [SchemeSel]  = { col_gray5, col_cyan,  "#AFD700"  },
 };
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
@@ -40,9 +40,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class              instance    title       tags mask     isfloating   monitor */
+    { "Gimp",             NULL,       NULL,       0,            1,           -1 },
+    { "firefox",          NULL,       NULL,       2,            0,           -1 },
+    { "TelegramDesktop",  NULL,       NULL,       4,            0,           -1 },
+    { "transmission",     NULL,       NULL,       4,            0,           -1 },
+    { "vlc",              NULL,       NULL,       16,           1,           -1 },
+    { "rhythmbox",        NULL,       NULL,       1<<7,         0,           -1 },
 };
 
 /* layout(s) */
@@ -77,7 +81,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray5, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
