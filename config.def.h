@@ -10,7 +10,10 @@ static const unsigned int gappov    = 32;       /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Cascadia_Code_Regular_Nerd_Font_Complete:size=12" };
+static const char *fonts[] = {
+    "FontAwesome:size=12",
+    "Hack:size=12",
+};
 static const char dmenufont[]       = "Cascadia_Code_Regular_Nerd_Font_Complete:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -33,6 +36,7 @@ static const unsigned int alphas[][3]      = {
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+// static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
@@ -42,11 +46,13 @@ static const Rule rules[] = {
 	 */
 	/* class              instance    title       tags mask     isfloating   monitor */
     { "Gimp",             NULL,       NULL,       0,            1,           -1 },
-    { "firefox",          NULL,       NULL,       2,            0,           -1 },
-    { "TelegramDesktop",  NULL,       NULL,       4,            0,           -1 },
-    { "transmission",     NULL,       NULL,       4,            0,           -1 },
-    { "vlc",              NULL,       NULL,       16,           1,           -1 },
-    { "rhythmbox",        NULL,       NULL,       1<<7,         0,           -1 },
+    { "firefox",          NULL,       NULL,       1<<1,         0,           -1 },
+    { "Chromium",         NULL,       NULL,       1<<1,         0,           -1 },
+    { "TelegramDesktop",  NULL,       NULL,       1<<2,         0,           -1 },
+    { "transmission",     NULL,       NULL,       1<<5,         0,           -1 },
+    { "vlc",              NULL,       NULL,       1<<4,         0,           -1 },
+    { "rhythmbox",        NULL,       NULL,       1<<8,         0,           -1 },
+    { "Rhythmbox",        NULL,       NULL,       1<<8,         0,           -1 },
 };
 
 /* layout(s) */
@@ -65,7 +71,7 @@ static const Layout layouts[] = {
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
  	{ "[@]",      spiral },
- 	{ "[\\]",      dwindle },
+ 	{ "[\\]",     dwindle },
 };
 
 /* key definitions */
@@ -82,12 +88,12 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray5, NULL };
-static const char *termcmd[]  = { "st", NULL };
+// static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	// { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
@@ -113,17 +119,17 @@ static Key keys[] = {
 	/* { MODKEY|Mod4Mask,              XK_o,      incrohgaps,     {.i = -1 } }, */
 	/* { MODKEY|ShiftMask,             XK_y,      incrovgaps,     {.i = +1 } }, */
 	/* { MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } }, */
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	// { MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[4]} },
-	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[5]} },
-	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[6]} },
-	{ MODKEY|ShiftMask,             XK_g,      setlayout,      {.v = &layouts[7]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, // title
+	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, // ?floating
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, // monocle
+	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} }, // grid
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[4]} }, // centeredmaster
+	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[5]} }, // centeredfloatingmaster
+	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[6]} }, // sprial fibonacci
+	{ MODKEY|ShiftMask,             XK_g,      setlayout,      {.v = &layouts[7]} }, // dwindle fibonacci
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -153,7 +159,7 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button1,        togglewin,      {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+	// { ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
