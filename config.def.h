@@ -26,7 +26,7 @@ static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 /*               fg         bg         border   */
     [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-    [SchemeSel]  = { col_gray5, col_cyan,  "#AFD700"  },
+    [SchemeSel]  = { col_gray5, col_cyan,  "#7E7D93"  },
 };
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
@@ -50,6 +50,7 @@ static const Rule rules[] = {
     { "Chromium",         NULL,       NULL,       1<<1,         0,           -1 },
     { "TelegramDesktop",  NULL,       NULL,       1<<2,         0,           -1 },
     { "transmission",     NULL,       NULL,       1<<5,         0,           -1 },
+    { "jetbrains-studio", NULL,       NULL,       1<<5,         0,           -1 },
     { "vlc",              NULL,       NULL,       1<<4,         0,           -1 },
     { "rhythmbox",        NULL,       NULL,       1<<8,         0,           -1 },
     { "Rhythmbox",        NULL,       NULL,       1<<8,         0,           -1 },
@@ -75,7 +76,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -100,13 +101,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	/* { MODKEY|Mod4Mask,              XK_h,      incrgaps,       {.i = +1 } }, */
-	/* { MODKEY|Mod4Mask,              XK_l,      incrgaps,       {.i = -1 } }, */
-	{ MODKEY,                       XK_s,      incrogaps,      {.i = +10 } },
-	{ MODKEY|ShiftMask,             XK_s,      incrogaps,      {.i = -10 } },
+	{ MODKEY,                       XK_s,      incrgaps,       {.i = +10 } },
+	{ MODKEY|ShiftMask,             XK_s,      incrgaps,       {.i = -10 } },
+	// { MODKEY,                       XK_s,      incrogaps,      {.i = +10 } },
+	// { MODKEY|ShiftMask,             XK_s,      incrogaps,      {.i = -10 } },
 	{ MODKEY,                       XK_z,      incrigaps,      {.i = +10 } },
 	{ MODKEY|ShiftMask,             XK_z,      incrigaps,      {.i = -10 } },
 	{ MODKEY|ShiftMask,             XK_d,      togglegaps,     {0} },
