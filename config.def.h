@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 7;        /* border pixel of windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 32;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 32;       /* vert inner gap between windows */
@@ -20,8 +20,8 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_gray5[]       = "#28282A";
-static const char col_cyan[]        = "#6D6C7C";
-static const unsigned int baralpha = 0x80;
+static const char col_cyan[]        = "#8EBBB9";
+static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 /*               fg         bg         border   */
@@ -45,15 +45,19 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class              instance    title       tags mask     isfloating   monitor */
-    { "Gimp",             NULL,       NULL,       0,            1,           -1 },
-    { "firefox",          NULL,       NULL,       1<<1,         0,           -1 },
-    { "Chromium",         NULL,       NULL,       1<<1,         0,           -1 },
-    { "TelegramDesktop",  NULL,       NULL,       1<<2,         0,           -1 },
-    { "transmission",     NULL,       NULL,       1<<5,         0,           -1 },
-    { "jetbrains-studio", NULL,       NULL,       1<<5,         0,           -1 },
-    { "vlc",              NULL,       NULL,       1<<4,         0,           -1 },
-    { "rhythmbox",        NULL,       NULL,       1<<8,         0,           -1 },
-    { "Rhythmbox",        NULL,       NULL,       1<<8,         0,           -1 },
+    { "Gimp",                   NULL,       NULL,       0,            1,           -1 },
+    { "firefox",                NULL,       NULL,       1<<1,         0,           -1 },
+    { "Chromium",               NULL,       NULL,       1<<1,         0,           -1 },
+    { "TelegramDesktop",        NULL,       NULL,       1<<2,         0,           -1 },
+    { "Zeal",                   NULL,       NULL,       1<<3,         0,           -1 },
+    { "Anki",                   NULL,       NULL,       1<<3,         0,           -1 },
+    { "transmission",           NULL,       NULL,       1<<5,         0,           -1 },
+    { "VirtualBox Machine",     NULL,       NULL,       1<<5,         0,           -1 },
+    { "VirtualBox Manager",     NULL,       NULL,       1<<5,         0,           -1 },
+    { "jetbrains-studio",       NULL,       NULL,       1<<5,         0,           -1 },
+    { "vlc",                    NULL,       NULL,       1<<4,         0,           -1 },
+    { "rhythmbox",              NULL,       NULL,       1<<8,         0,           -1 },
+    { "Rhythmbox",              NULL,       NULL,       1<<8,         0,           -1 },
 };
 
 /* layout(s) */
