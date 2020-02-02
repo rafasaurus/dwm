@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 4;        /* border pixel of windows */
+static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 32;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 32;       /* vert inner gap between windows */
@@ -30,7 +30,7 @@ static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3] = {
 /*               fg         bg         border   */
     [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-    [SchemeSel]  = { col_gray5, col_cyan,  "#7E7D93"  },
+    [SchemeSel]  = { col_gray5, col_cyan,  "#8f8ec4"  },
 	[SchemeWarn] =	 { col_black, col_yellow, col_red },
 	[SchemeUrgent]=	 { col_white, col_red,    col_red },
 	[SchemeHid]=	 { col_white, col_red,    col_red },
