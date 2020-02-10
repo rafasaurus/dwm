@@ -11,16 +11,16 @@ static const int smartgaps          = 0;        /* 1 means no outer gap when the
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[] = {
-    "FontAwesome:size=12",
-    "Hack:size=12",
+    "FontAwesome:size=10.5",
+    "Hack:size=10.5",
 };
-static const char dmenufont[]       = "Cascadia_Code_Regular_Nerd_Font_Complete:size=12";
+static const char dmenufont[]       = "Cascadia_Code_Regular_Nerd_Font_Complete:size=10.5";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_gray5[]       = "#28282A";
-static const char col_cyan[]        = "#8EBBB9";
+static const char col_cyan[]        = "#B2E0DF";
 static const char col_black[]       = "#000000";
 static const char col_red[]         = "#ff0000";
 static const char col_yellow[]      = "#ffff00";
@@ -64,9 +64,10 @@ static const Rule rules[] = {
     { "TelegramDesktop",        NULL,       NULL,       1<<2,         0,           -1 },
     { "Zeal",                   NULL,       NULL,       1<<3,         0,           -1 },
     { "Anki",                   NULL,       NULL,       1<<3,         0,           -1 },
+    { "Notion",                 NULL,       NULL,       1<<7,         0,           -1 },
     { "transmission",           NULL,       NULL,       1<<5,         0,           -1 },
-    { "VirtualBox Machine",     NULL,       NULL,       1<<5,         0,           -1 },
-    { "VirtualBox Manager",     NULL,       NULL,       1<<5,         0,           -1 },
+    { "VirtualBox Machine",     NULL,       NULL,       1<<6,         0,           -1 },
+    { "VirtualBox Manager",     NULL,       NULL,       1<<6,         0,           -1 },
     { "jetbrains-studio",       NULL,       NULL,       1<<5,         0,           -1 },
     { "vlc",                    NULL,       NULL,       1<<4,         0,           -1 },
     { "rhythmbox",              NULL,       NULL,       1<<8,         0,           -1 },
@@ -139,6 +140,7 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } }, */
 	// { MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
+	{ MODKEY|ShiftMask,             XK_Tab,    view,           {1} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, // title
 	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, // ?floating
