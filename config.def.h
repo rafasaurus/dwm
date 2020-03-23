@@ -17,32 +17,21 @@ static const char *fonts[] = {
     "Hack:size=10.5",
 };
 static const char dmenufont[]       = "Cascadia_Code_Regular_Nerd_Font_Complete:size=10.5";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-// static const char col_gray5[]       = "#28282A";
-static const char col_gray5[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static const char col_black[]       = "#000000";
-static const char col_red[]         = "#ff0000";
-static const char col_yellow[]      = "#ffff00";
-static const char col_white[]       = "#ffffff";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
-static char normbgcolor[]           = "#111111";
-static char normbordercolor[]       = "#334422"; // not focused border color
+static char normbgcolor[]           = "#222222";
+static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
-static char selfgcolor[]            = "#eeeeee"; // tab font color
-static char selbordercolor[]        = "#44CC44"; // focused border color
-static char selbgcolor[]            = "#227799";
-static const char *colors[][3] = {
-/*               fg         bg         border   */
+static char selfgcolor[]            = "#eeeeee";
+static char selbordercolor[]        = "#005577";
+static char selbgcolor[]            = "#005577";
+static char *colors[][3] = {
+       /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
-       [SchemeWarn] =	 { col_black, col_yellow, col_red },
-       [SchemeUrgent]=	 { col_white, col_red,    col_red },
-       [SchemeHid]=	 { col_white, col_red,    col_red },
+//        [SchemeWarn] =	 { col_black, col_yellow, col_red },
+//        [SchemeUrgent]=	 { col_white, col_red,    col_red },
+//        [SchemeHid]=	 { col_white, col_red,    col_red },
 };
 static const unsigned int alphas[][3] = {
 	/*               fg      bg        border     */
@@ -133,6 +122,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_z,      incrigaps,      {.i = -10 } },
 	{ MODKEY|ShiftMask,             XK_d,      togglegaps,     {0} },
 	{ MODKEY|ShiftMask,             XK_t,      defaultgaps,    {0} },
+	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 	/* { MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } }, */
 	/* { MODKEY,                       XK_o,      incrihgaps,     {.i = -1 } }, */
 	/* { MODKEY|ControlMask,           XK_y,      incrivgaps,     {.i = +1 } }, */
