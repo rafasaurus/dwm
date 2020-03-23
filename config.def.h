@@ -1,15 +1,17 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 5;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappih    = 32;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 32;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 32;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 32;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int vertpad            = 0;       /* vertical padding of bar */
+static const int sidepad            = 0;       /* horizontal padding of bar */
 static const char *fonts[] = {
     "FontAwesome:size=10.5",
     "Hack:size=10.5",
@@ -28,13 +30,19 @@ static const char col_yellow[]      = "#ffff00";
 static const char col_white[]       = "#ffffff";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
+static char normbgcolor[]           = "#111111";
+static char normbordercolor[]       = "#334422"; // not focused border color
+static char normfgcolor[]           = "#bbbbbb";
+static char selfgcolor[]            = "#eeeeee"; // tab font color
+static char selbordercolor[]        = "#44CC44"; // focused border color
+static char selbgcolor[]            = "#227799";
 static const char *colors[][3] = {
 /*               fg         bg         border   */
-    [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-    [SchemeSel]  = { col_gray5, col_cyan,  "#8f8ec4"  },
-	[SchemeWarn] =	 { col_black, col_yellow, col_red },
-	[SchemeUrgent]=	 { col_white, col_red,    col_red },
-	[SchemeHid]=	 { col_white, col_red,    col_red },
+       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+       [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
+       [SchemeWarn] =	 { col_black, col_yellow, col_red },
+       [SchemeUrgent]=	 { col_white, col_red,    col_red },
+       [SchemeHid]=	 { col_white, col_red,    col_red },
 };
 static const unsigned int alphas[][3] = {
 	/*               fg      bg        border     */
@@ -42,15 +50,8 @@ static const unsigned int alphas[][3] = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
-// static const char *colors[][3] = {
-// 	/*					fg         bg          border   */
-// 	[SchemeNorm] =	 { col_gray3, col_gray1,  col_gray2 },
-// 	[SchemeSel]  =	 { col_gray4, col_cyan,   col_cyan },
-// };
-
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-// static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
@@ -61,6 +62,7 @@ static const Rule rules[] = {
 	/* class              instance    title       tags mask     isfloating   monitor */
     { "Gimp",                   NULL,       NULL,       0,            1,           -1 },
     { "firefox",                NULL,       NULL,       1<<1,         0,           -1 },
+    { "Nightly",                NULL,       NULL,       1<<1,         0,           -1 },
     { "Chromium",               NULL,       NULL,       1<<1,         0,           -1 },
     { "TelegramDesktop",        NULL,       NULL,       1<<2,         0,           -1 },
     { "Zeal",                   NULL,       NULL,       1<<3,         0,           -1 },
@@ -107,7 +109,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray5, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 // static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
@@ -144,7 +146,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {1} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, // title
-	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, // ?floating
+	{ MODKEY,                       XK_w,      setlayout,      {.v = &layouts[1]} }, // ?floating
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, // monocle
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} }, // grid
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[4]} }, // centeredmaster
@@ -153,7 +155,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_g,      setlayout,      {.v = &layouts[7]} }, // dwindle fibonacci
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+	// { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
