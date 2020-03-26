@@ -62,8 +62,8 @@ static const Rule rules[] = {
     { "VirtualBox Manager",     NULL,       NULL,       1<<6,         0,           -1 },
     { "jetbrains-studio",       NULL,       NULL,       1<<5,         0,           -1 },
     { "vlc",                    NULL,       NULL,       1<<4,         0,           -1 },
-    { "rhythmbox",              NULL,       NULL,       1<<8,         0,           -1 },
-    { "Rhythmbox",              NULL,       NULL,       1<<8,         0,           -1 },
+    { "rhythmbox",              NULL,       NULL,       1<<8,         1,           -1 },
+    { "Rhythmbox",              NULL,       NULL,       1<<8,         1,           -1 },
 };
 
 /* layout(s) */
@@ -136,13 +136,13 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {1} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, // title
-	{ MODKEY,                       XK_w,      setlayout,      {.v = &layouts[1]} }, // ?floating
+	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[1]} }, // ?floating
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, // monocle
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} }, // grid
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[4]} }, // centeredmaster
-	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[5]} }, // centeredfloatingmaster
-	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[6]} }, // sprial fibonacci
-	{ MODKEY|ShiftMask,             XK_g,      setlayout,      {.v = &layouts[7]} }, // dwindle fibonacci
+	// { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[5]} }, // centeredfloatingmaster
+	// { MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[6]} }, // sprial fibonacci
+	// { MODKEY|ShiftMask,             XK_g,      setlayout,      {.v = &layouts[7]} }, // dwindle fibonacci
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	// { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
