@@ -12,8 +12,8 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[] = { "monospace:size=11.5", "JoyPixels:pixelsize=11.5:antialias=true:autohint=true" };
-static const char dmenufont[]       = "monospace:size=11.5";
+static const char *fonts[] = { "fontawesome:size=13", "JoyPixels:pixelsize=12.5:antialias=true:autohint=true" };
+static const char dmenufont[]       = "monospace:size=12.5";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
 static char normbgcolor[]           = "#222222";
@@ -46,8 +46,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class              instance    title       tags mask     isfloating   monitor */
-    { "Gimp",                   NULL,       NULL,       0,            1,           -1 },
+    { "Nm-connection-editor",   NULL,       NULL,       0,            1,           -1 },
     { "firefox",                NULL,       NULL,       1<<1,         0,           -1 },
+    { "Firefox",                NULL,       "Firefox Preferences",        0,         True,     -1 },
     { "Nightly",                NULL,       NULL,       1<<1,         0,           -1 },
     { "Chromium",               NULL,       NULL,       1<<1,         0,           -1 },
     { "TelegramDesktop",        NULL,       NULL,       1<<2,         0,           -1 },
@@ -117,7 +118,7 @@ static Key keys[] = {
 	// { MODKEY|ShiftMask,             XK_s,      incrogaps,      {.i = -10 } },
 	{ MODKEY,                       XK_z,      incrigaps,      {.i = +10 } },
 	{ MODKEY|ShiftMask,             XK_z,      incrigaps,      {.i = -10 } },
-	{ MODKEY|ShiftMask,             XK_d,      togglegaps,     {0} },
+	// { MODKEY|ShiftMask,             XK_d,      togglegaps,     {0} },
 	{ MODKEY|ShiftMask,             XK_t,      defaultgaps,    {0} },
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 	/* { MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } }, */
@@ -136,7 +137,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[1]} }, // ?floating
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, // monocle
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} }, // grid
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[4]} }, // centeredmaster
+	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[4]} }, // centeredmaster
+	{ MODKEY,			XK_f,		togglefullscr,	{0} },
 	// { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[5]} }, // centeredfloatingmaster
 	// { MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[6]} }, // sprial fibonacci
 	// { MODKEY|ShiftMask,             XK_g,      setlayout,      {.v = &layouts[7]} }, // dwindle fibonacci
