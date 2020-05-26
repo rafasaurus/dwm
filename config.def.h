@@ -26,9 +26,6 @@ static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
-//        [SchemeWarn] =	 { col_black, col_yellow, col_red },
-//        [SchemeUrgent]=	 { col_white, col_red,    col_red },
-//        [SchemeHid]=	 { col_white, col_red,    col_red },
 };
 static const unsigned int alphas[][3] = {
 	/*               fg      bg        border     */
@@ -44,24 +41,24 @@ static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
-	 */
-	/* class              instance    title       tags mask     isfloating   monitor */
-    { "Nm-connection-editor",   NULL,       NULL,       0,            1,           -1 },
-    { "firefox",                NULL,       NULL,       1<<1,         0,           -1 },
-    { "Firefox",                NULL,       "Firefox Preferences",        0,         True,     -1 },
-    { "Nightly",                NULL,       NULL,       1<<1,         0,           -1 },
-    { "Chromium",               NULL,       NULL,       1<<1,         0,           -1 },
-    { "TelegramDesktop",        NULL,       NULL,       1<<2,         0,           -1 },
-    { "Zeal",                   NULL,       NULL,       1<<3,         0,           -1 },
-    { "Anki",                   NULL,       NULL,       1<<3,         0,           -1 },
-    { "Notion",                 NULL,       NULL,       1<<7,         0,           -1 },
-    { "transmission",           NULL,       NULL,       1<<5,         0,           -1 },
-    { "VirtualBox Machine",     NULL,       NULL,       1<<6,         0,           -1 },
-    { "VirtualBox Manager",     NULL,       NULL,       1<<6,         0,           -1 },
-    { "jetbrains-studio",       NULL,       NULL,       1<<5,         0,           -1 },
-    { "vlc",                    NULL,       NULL,       1<<4,         0,           -1 },
-    { "rhythmbox",              NULL,       NULL,       1<<8,         1,           -1 },
-    { "Rhythmbox",              NULL,       NULL,       1<<8,         1,           -1 },
+	*/
+	/* class                    instance    title                   tags mask     isfloating   monitor */
+    { "Nm-connection-editor",   NULL,       NULL,                   0,            1,           -1 },
+    { "firefox",                NULL,       NULL,                   1<<1,         0,           -1 },
+    { "Firefox",                NULL,       "Firefox Preferences",  0,            1,           -1 },
+    { "Nightly",                NULL,       NULL,                   1<<1,         0,           -1 },
+    { "Chromium",               NULL,       NULL,                   1<<1,         0,           -1 },
+    { "TelegramDesktop",        NULL,       NULL,                   1<<2,         0,           -1 },
+    { "Zeal",                   NULL,       NULL,                   1<<3,         0,           -1 },
+    { "Anki",                   NULL,       NULL,                   1<<3,         0,           -1 },
+    { "Notion",                 NULL,       NULL,                   1<<7,         0,           -1 },
+    { "transmission",           NULL,       NULL,                   1<<5,         0,           -1 },
+    { "VirtualBox Machine",     NULL,       NULL,                   1<<6,         0,           -1 },
+    { "VirtualBox Manager",     NULL,       NULL,                   1<<6,         0,           -1 },
+    { "jetbrains-studio",       NULL,       NULL,                   1<<5,         0,           -1 },
+    { "vlc",                    NULL,       NULL,                   1<<4,         0,           -1 },
+    { "rhythmbox",              NULL,       NULL,                   1<<8,         1,           -1 },
+    { "Rhythmbox",              NULL,       NULL,                   1<<8,         1,           -1 },
 };
 
 /* layout(s) */
@@ -102,7 +99,6 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	// { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
@@ -129,7 +125,7 @@ static Key keys[] = {
 	/* { MODKEY|Mod4Mask,              XK_o,      incrohgaps,     {.i = -1 } }, */
 	/* { MODKEY|ShiftMask,             XK_y,      incrovgaps,     {.i = +1 } }, */
 	/* { MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } }, */
-	// { MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_space, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {1} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
@@ -137,12 +133,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[1]} }, // ?floating
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, // monocle
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} }, // grid
-	// { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[4]} }, // centeredmaster
 	{ MODKEY,			XK_f,		togglefullscr,	{0} },
-	// { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[5]} }, // centeredfloatingmaster
-	// { MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[6]} }, // sprial fibonacci
-	// { MODKEY|ShiftMask,             XK_g,      setlayout,      {.v = &layouts[7]} }, // dwindle fibonacci
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	// { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -180,4 +171,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
