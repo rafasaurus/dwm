@@ -67,7 +67,7 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 #include "layouts.c"
-#include "fibonacci.c"
+#include "vanitygaps.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
@@ -112,9 +112,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      incrgaps,       {.i = -10 } },
 	// { MODKEY,                       XK_s,      incrogaps,      {.i = +10 } },
 	// { MODKEY|ShiftMask,             XK_s,      incrogaps,      {.i = -10 } },
-	{ MODKEY,                       XK_z,      incrigaps,      {.i = +10 } },
-	{ MODKEY|ShiftMask,             XK_z,      incrigaps,      {.i = -10 } },
-	// { MODKEY|ShiftMask,             XK_d,      togglegaps,     {0} },
+	{ MODKEY,                       XK_z,      incrgaps,      {.i = +10 } },
+	{ MODKEY|ShiftMask,             XK_z,      incrgaps,      {.i = -10 } },
+	{ MODKEY|ShiftMask,             XK_d,      togglegaps,     {0} },
 	{ MODKEY|ShiftMask,             XK_t,      defaultgaps,    {0} },
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 	/* { MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } }, */
