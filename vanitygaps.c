@@ -42,13 +42,6 @@ setgaps(int oh, int ov, int ih, int iv)
 }
 
 static void
-togglegaps(const Arg *arg)
-{
-	enablegaps = !enablegaps;
-	arrange(NULL);
-}
-
-static void
 defaultgaps(const Arg *arg)
 {
 	setgaps(gappoh, gappov, gappih, gappiv);
@@ -135,7 +128,7 @@ static void
 getgaps(Monitor *m, int *oh, int *ov, int *ih, int *iv, unsigned int *nc)
 {
 	unsigned int n, oe, ie;
-	oe = ie = enablegaps;
+	oe = ie = m->enablegaps;
 	Client *c;
 
 	for (n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), n++);

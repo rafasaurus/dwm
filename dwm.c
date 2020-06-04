@@ -150,6 +150,7 @@ struct Monitor {
 	unsigned int sellt;
 	unsigned int tagset[2];
 	int showbar;
+    int enablegaps;
 	int topbar;
 	Client *clients;
 	Client *sel;
@@ -322,6 +323,7 @@ struct Pertag {
 	unsigned int sellts[LENGTH(tags) + 1]; /* selected layouts */
 	const Layout *ltidxs[LENGTH(tags) + 1][2]; /* matrix of tags and layouts indexes  */
 	int showbars[LENGTH(tags) + 1]; /* display bar for the current tag */
+    int enablegaps[LENGTH(tags) + 1]; /* enable gaps for the current tag */
 };
 
 /* compile-time check if all tags fit into an unsigned int bit array. */
@@ -706,6 +708,7 @@ createmon(void)
 	m->mfact = mfact;
 	m->nmaster = nmaster;
 	m->showbar = showbar;
+    m->enablegaps = enablegaps;
 	m->topbar = topbar;
 	m->gappih = gappih;
 	m->gappiv = gappiv;
@@ -726,6 +729,7 @@ createmon(void)
 		m->pertag->sellts[i] = m->sellt;
 
 		m->pertag->showbars[i] = m->showbar;
+		m->pertag->enablegaps[i] = m->enablegaps;
 	}
 
 	return m;
@@ -1962,6 +1966,14 @@ togglebar(const Arg *arg)
 	arrange(selmon);
 }
 
+static void
+togglegaps(const Arg *arg)
+{
+    selmon->enablegaps = selmon->pertag->enablegaps[selmon->pertag->curtag] = !selmon->enablegaps;
+	// enablegaps = !enablegaps;
+	arrange(NULL);
+}
+
 void
 togglefloating(const Arg *arg)
 {
@@ -2037,6 +2049,8 @@ toggleview(const Arg *arg)
 
 		if (selmon->showbar != selmon->pertag->showbars[selmon->pertag->curtag])
 			togglebar(NULL);
+		if (selmon->enablegaps != selmon->pertag->enablegaps[selmon->pertag->curtag])
+			togglegaps(NULL);
 
 		focus(NULL);
 		arrange(selmon);
@@ -2378,6 +2392,8 @@ view(const Arg *arg)
 
 	if (selmon->showbar != selmon->pertag->showbars[selmon->pertag->curtag])
 		togglebar(NULL);
+    if (selmon->enablegaps != selmon->pertag->enablegaps[selmon->pertag->curtag])
+        togglegaps(NULL);
 
 	focus(NULL);
 	arrange(selmon);
@@ -2526,3 +2542,4 @@ main(int argc, char *argv[])
 	XCloseDisplay(dpy);
 	return EXIT_SUCCESS;
 }
+
