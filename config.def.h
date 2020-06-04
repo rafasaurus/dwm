@@ -70,14 +70,17 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 #include "vanitygaps.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[]=",      tile },               /* first entry is default */
+	{ "><>",      NULL },               /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "HHH",      grid },
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
  	{ "[@]",      spiral },
  	{ "[\\]",     dwindle },
+	{ "TTT",	  bstack },		        /* Master on top, slaves on bottom */
+	{ "H[]",	  deck },			    /* Master on left, slaves in monocle-like mode on right */
+	{ NULL,		  NULL },
 };
 
 /* key definitions */
@@ -96,6 +99,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 // static const char *termcmd[]  = { "st", NULL };
 
+#include <X11/XF86keysym.h>
+#include "shiftview.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -104,8 +109,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_w,      incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_w,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_s,      incrgaps,       {.i = +10 } },
@@ -130,9 +135,20 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {1} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, // title
+	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[8]} }, // bstack
 	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[1]} }, // ?floating
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, // monocle
-	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} }, // grid
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[9]} }, // deck
+	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[4]} }, // centeredmaster
+	{ MODKEY|ShiftMask,             XK_i,      setlayout,      {.v = &layouts[5]} }, // centeredfloatingmaster
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[6]} }, // spiral
+	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[7]} }, // dwindle
+	// { MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} }, // grid
+    // TODO bug, shiftview not working
+	{ MODKEY,			            XK_g,	   shiftview,      { .i = 0 } },
+	{ MODKEY|ShiftMask,		        XK_g,	   shifttag,	   { .i = -1 } },
+	{ MODKEY,			            XK_semicolon,	shiftview, { .i = 1 } },
+	{ MODKEY|ShiftMask,		        XK_semicolon,	shifttag,  { .i = 1 } },
 	{ MODKEY,			XK_f,		togglefullscr,	{0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	// { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
