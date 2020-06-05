@@ -100,7 +100,6 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 // static const char *termcmd[]  = { "st", NULL };
 
 #include <X11/XF86keysym.h>
-#include "shiftview.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -144,11 +143,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[6]} }, // spiral
 	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[7]} }, // dwindle
 	// { MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} }, // grid
-    // TODO bug, shiftview not working
-	{ MODKEY,			            XK_g,	   shiftview,      { .i = 0 } },
-	{ MODKEY|ShiftMask,		        XK_g,	   shifttag,	   { .i = -1 } },
-	{ MODKEY,			            XK_semicolon,	shiftview, { .i = 1 } },
-	{ MODKEY|ShiftMask,		        XK_semicolon,	shifttag,  { .i = 1 } },
 	{ MODKEY,			XK_f,		togglefullscr,	{0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	// { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
