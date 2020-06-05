@@ -2393,12 +2393,11 @@ view(const Arg *arg)
 	if (selmon->showbar != selmon->pertag->showbars[selmon->pertag->curtag])
 		togglebar(NULL);
 
+    if (selmon->enablegaps != selmon->pertag->enablegaps[selmon->pertag->curtag])
+        togglegaps(NULL);
 
 	focus(NULL);
 	arrange(selmon);
-
-    if (selmon->enablegaps != selmon->pertag->enablegaps[selmon->pertag->curtag])
-        togglegaps(NULL);
 }
 
 Client *
