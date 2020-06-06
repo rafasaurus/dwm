@@ -116,9 +116,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      incrgaps,       {.i = -10 } },
 	// { MODKEY,                       XK_s,      incrogaps,      {.i = +10 } },
 	// { MODKEY|ShiftMask,             XK_s,      incrogaps,      {.i = -10 } },
-	{ MODKEY,                       XK_z,      incrgaps,      {.i = +10 } },
-	{ MODKEY|ShiftMask,             XK_z,      incrgaps,      {.i = -10 } },
-	{ MODKEY|ShiftMask,             XK_d,      togglegaps,     {0} },
+	{ MODKEY,                       XK_z,      incrgaps,       {.i = +10 } },
+	{ MODKEY|ShiftMask,             XK_z,      incrgaps,       {.i = -10 } },
+	{ MODKEY,                       XK_g,      togglegaps,     {0} },
 	// { MODKEY|ShiftMask,             XK_t,      defaultgaps,    {0} },
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 	/* { MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } }, */
@@ -129,7 +129,7 @@ static Key keys[] = {
 	/* { MODKEY|Mod4Mask,              XK_o,      incrohgaps,     {.i = -1 } }, */
 	/* { MODKEY|ShiftMask,             XK_y,      incrovgaps,     {.i = +1 } }, */
 	/* { MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } }, */
-	{ MODKEY,                       XK_space, zoom,           {0} },
+	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {1} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
@@ -175,6 +175,7 @@ static Button buttons[] = {
 	// { ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+	{ ClkClientWin,         MODKEY|ShiftMask,         Button1,        resizemouse,    {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
