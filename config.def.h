@@ -8,11 +8,12 @@ static const unsigned int gappiv    = 10;       /* vert inner gap between window
 static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[] = { "fontawesome:size=13", "JoyPixels:pixelsize=12.5:antialias=true:autohint=true" };
+static const char *fonts[] = { "fontawesome:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=12.5";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
@@ -56,9 +57,13 @@ static const Rule rules[] = {
     { "VirtualBox Machine",     NULL,       NULL,                   1<<6,         0,           -1 },
     { "VirtualBox Manager",     NULL,       NULL,                   1<<6,         0,           -1 },
     { "jetbrains-studio",       NULL,       NULL,                   1<<5,         0,           -1 },
-    { "vlc",                    NULL,       NULL,                   1<<4,         0,           -1 },
     { "rhythmbox",              NULL,       NULL,                   1<<8,         1,           -1 },
     { "Rhythmbox",              NULL,       NULL,                   1<<8,         1,           -1 },
+    /* class                    instance    title                   tags mask     isfloating  isterminal  noswallow  monitor */
+    { "vlc",                    NULL,       NULL,                   1<<4,         0,          0,          -1,        -1 },
+    { "sxiv",                   NULL,       NULL,                   0,            0,          0,          -1,        -1 },
+    { "mpv",                    NULL,       NULL,                   0,            0,          0,          -1,        -1 },
+    { "St",                     NULL,       NULL,                   0,            0,          1,          -1,        -1 },
 };
 
 /* layout(s) */
