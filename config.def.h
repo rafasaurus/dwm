@@ -48,7 +48,6 @@ static const Rule rules[] = {
     { "firefox",                NULL,       NULL,                   1<<1,         0,           -1 },
     { "Firefox",                NULL,       "Firefox Preferences",  0,            1,           -1 },
     { "Nightly",                NULL,       NULL,                   1<<1,         0,           -1 },
-    { "Chromium",               NULL,       NULL,                   1<<1,         0,           -1 },
     { "TelegramDesktop",        NULL,       NULL,                   1<<2,         0,           -1 },
     { "Zeal",                   NULL,       NULL,                   1<<3,         0,           -1 },
     { "Anki",                   NULL,       NULL,                   1<<3,         0,           -1 },
@@ -64,6 +63,7 @@ static const Rule rules[] = {
     { "sxiv",                   NULL,       NULL,                   0,            0,          0,          -1,        -1 },
     { "mpv",                    NULL,       NULL,                   0,            0,          0,          -1,        -1 },
     { "St",                     NULL,       NULL,                   0,            0,          1,          -1,        -1 },
+    { "Chromium",               NULL,       NULL,                   1<<1,         0,          -1,          1,        -1 },
 };
 
 /* layout(s) */
