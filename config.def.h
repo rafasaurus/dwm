@@ -13,7 +13,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[] = { "fontawesome:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
+static const char *fonts[] = { "fontawesome:size=13", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=12.5";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
@@ -64,6 +64,7 @@ static const Rule rules[] = {
     { "mpv",                    NULL,       NULL,                   0,            0,          0,          -1,        -1 },
     { "St",                     NULL,       NULL,                   0,            0,          1,          -1,        -1 },
     { "Chromium",               NULL,       NULL,                   1<<1,         0,          -1,          1,        -1 },
+    { "Brave-browser",               NULL,       NULL,                   1<<1,         0,          -1,          1,        -1 },
 };
 
 /* layout(s) */
