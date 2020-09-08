@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 6;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -64,7 +64,8 @@ static const Rule rules[] = {
     { "mpv",                    NULL,       NULL,                   0,            0,          0,          -1,        -1 },
     { "St",                     NULL,       NULL,                   0,            0,          1,          -1,        -1 },
     { "Chromium",               NULL,       NULL,                   1<<1,         0,          -1,          1,        -1 },
-    { "Brave-browser",               NULL,       NULL,                   1<<1,         0,          -1,          1,        -1 },
+    { "Brave-browser",          NULL,       NULL,                   1<<1,         0,          -1,          -1,        -1 },
+    { "QGroundControl",         NULL,       NULL,                   1<<3,         0,          -1,          -1,        -1 },
 };
 
 /* layout(s) */
