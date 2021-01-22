@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -13,7 +13,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[] = { "fontawesome:size=13", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
+static const char *fonts[] = { "mono:size=11", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=12.5";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
@@ -60,6 +60,8 @@ static const Rule rules[] = {
     { "Rhythmbox",              NULL,       NULL,                   1<<8,         1,           -1 },
     /* class                    instance    title                   tags mask     isfloating  isterminal  noswallow  monitor */
     { "vlc",                    NULL,       NULL,                   1<<4,         0,          0,          -1,        -1 },
+    { "QuiteRss",               NULL,       NULL,                   1<<4,         0,          0,          -1,        -1 },
+    { "quiterss",               NULL,       NULL,                   1<<4,         0,          0,          -1,        -1 },
     { "sxiv",                   NULL,       NULL,                   0,            0,          0,          -1,        -1 },
     { "mpv",                    NULL,       NULL,                   0,            0,          0,          -1,        -1 },
     { "St",                     NULL,       NULL,                   0,            0,          1,          -1,        -1 },
