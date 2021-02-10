@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -51,6 +51,7 @@ static const Rule rules[] = {
     { "TelegramDesktop",        NULL,       NULL,                   1<<2,         0,           -1 },
     { "Zeal",                   NULL,       NULL,                   1<<3,         0,           -1 },
     { "Anki",                   NULL,       NULL,                   1<<3,         0,           -1 },
+    { "Surf",                   NULL,       NULL,                   1<<3,         0,           -1 },
     { "Notion",                 NULL,       NULL,                   1<<7,         0,           -1 },
     { "transmission",           NULL,       NULL,                   1<<5,         0,           -1 },
     { "VirtualBox Machine",     NULL,       NULL,                   1<<6,         0,           -1 },
@@ -173,8 +174,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_F2,      quit,           {0} },
-	{ MODKEY,                       XK_minus, scratchpad_show,  {0} },
-	{ MODKEY|ShiftMask,             XK_minus, scratchpad_hide,  {0} },
+	{ MODKEY,                       XK_quoteleft, scratchpad_show,  {0} },
+	{ MODKEY|ShiftMask,             XK_quoteleft, scratchpad_hide,  {0} },
 	{ MODKEY,                       XK_equal, scratchpad_remove,{0} },
 };
 
