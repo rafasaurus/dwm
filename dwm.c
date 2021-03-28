@@ -578,6 +578,7 @@ buttonpress(XEvent *e)
 	}
 	if (ev->window == selmon->barwin) {
 		i = x = 0;
+        int x_previous;
 		do
 			x += TEXTW(tags[i]);
 		while (ev->x >= x && ++i < LENGTH(tags));
@@ -587,7 +588,7 @@ buttonpress(XEvent *e)
 		} else if (ev->x < x + blw)
 			click = ClkLtSymbol;
 		/* 2px right padding */
-		else if (ev->x > (x = selmon->ww - TEXTW(stext) + lrpad - 2)) {
+		else if (ev->x > (x_previous = x, x = selmon->ww - TEXTW(stext) + lrpad - 2)) {
 			click = ClkStatusText;
 			char *text = rawstext;
 			int i = -1;
@@ -606,6 +607,7 @@ buttonpress(XEvent *e)
 				}
 			}
 		} else {
+            x = x_previous;
 			x += blw;
 			c = m->clients;
 
