@@ -10,5 +10,5 @@ HHH M+g grid			3
 [@] M+y spiral			6
 [\\  S+y dwindle		7
 TTT S+t bstack			8
-H[] M+u deck			9
+H[] S+u deck			9
 EOF

@@ -13,7 +13,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[] = { "mono:size=11", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
+static const char *fonts[] = { "monospace:size=11.2", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=12.5";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
@@ -69,6 +69,7 @@ static const Rule rules[] = {
     { "Chromium",               NULL,       NULL,                   1<<1,         0,                0,          -1,          1,        -1 },
     { "Brave-browser",          NULL,       NULL,                   1<<1,         0,                0,          -1,          -1,        -1 },
     { "QGroundControl",         NULL,       NULL,                   1<<3,         0,                0,          -1,          -1,        -1 },
+    { "Cpupower-gui",           NULL,       NULL,                   0,            1,                1,          -1,          -1,        -1 },
     { NULL,                     "popup",    NULL,                   0,            1,                1,          1,          -1,        -1 },
 };
 
@@ -150,7 +151,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[8]} }, // bstack
 	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[1]} }, // ?floating
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, // monocle
-	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[9]} }, // deck
+	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[9]} }, // deck
 	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[4]} }, // centeredmaster
 	{ MODKEY|ShiftMask,             XK_i,      setlayout,      {.v = &layouts[5]} }, // centeredfloatingmaster
 	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[6]} }, // spiral
