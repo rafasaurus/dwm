@@ -13,12 +13,12 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[] = { "monospace:size=11.2", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
+static const char *fonts[] = { "monospace:size=11.8", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=12.5";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
 static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
+static char normbordercolor[]       = "#333333";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#005577";
@@ -63,6 +63,7 @@ static const Rule rules[] = {
     { "vlc",                    NULL,       NULL,                   1<<4,         0,                0,          0,          -1,        -1 },
     { "QuiteRss",               NULL,       NULL,                   1<<4,         0,                0,          0,          -1,        -1 },
     { "quiterss",               NULL,       NULL,                   1<<4,         0,                0,          0,          -1,        -1 },
+    { "Com.gitlab.newsflash",   NULL,       NULL,                   1<<4,         0,                0,          0,          -1,        -1 },
     { "sxiv",                   NULL,       NULL,                   0,            0,                0,          0,          -1,        -1 },
     { "mpv",                    NULL,       NULL,                   0,            0,                0,          0,          -1,        -1 },
     { "St",                     NULL,       NULL,                   0,            0,                0,          1,          -1,        -1 },
@@ -126,23 +127,13 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_w,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_s,      incrgaps,       {.i = +10 } },
-	{ MODKEY|ShiftMask,             XK_s,      incrgaps,       {.i = -10 } },
-	// { MODKEY,                       XK_s,      incrogaps,      {.i = +10 } },
-	// { MODKEY|ShiftMask,             XK_s,      incrogaps,      {.i = -10 } },
+	{ MODKEY,                       XK_s,      incrgaps,       {.i = +13 } },
+	{ MODKEY|ShiftMask,             XK_s,      incrgaps,       {.i = -13 } },
 	{ MODKEY,                       XK_z,      incrgaps,       {.i = +10 } },
 	{ MODKEY|ShiftMask,             XK_z,      incrgaps,       {.i = -10 } },
 	{ MODKEY,                       XK_g,      togglegaps,     {0} },
 	// { MODKEY|ShiftMask,             XK_t,      defaultgaps,    {0} },
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
-	/* { MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } }, */
-	/* { MODKEY,                       XK_o,      incrihgaps,     {.i = -1 } }, */
-	/* { MODKEY|ControlMask,           XK_y,      incrivgaps,     {.i = +1 } }, */
-	/* { MODKEY|ControlMask,           XK_o,      incrivgaps,     {.i = -1 } }, */
-	/* { MODKEY|Mod4Mask,              XK_y,      incrohgaps,     {.i = +1 } }, */
-	/* { MODKEY|Mod4Mask,              XK_o,      incrohgaps,     {.i = -1 } }, */
-	/* { MODKEY|ShiftMask,             XK_y,      incrovgaps,     {.i = +1 } }, */
-	/* { MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } }, */
 	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {1} },
