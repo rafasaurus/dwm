@@ -13,7 +13,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[] = { "monospace:size=10.8", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
+static const char *fonts[] = { "Fira Code:size=9.5", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=10.8";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
@@ -46,14 +46,18 @@ static const Rule rules[] = {
 	/* class                    instance    title                   tags mask     iscentered,        isfloating   monitor */
     { "Nm-connection-editor",   NULL,       NULL,                   0,            0,                1,           -1 },
     { "firefox",                NULL,       NULL,                   1<<1,         0,                0,           -1 },
+    { "Google-chrome",          NULL,       NULL,                   1<<1,         0,                0,           -1 },
     { "Firefox",                NULL,       "Firefox Preferences",  0,            0,                1,           -1 },
     { "Nightly",                NULL,       NULL,                   1<<1,         0,                0,           -1 },
     { "TelegramDesktop",        NULL,       NULL,                   1<<2,         0,                0,           -1 },
+    { "KotatogramDesktop",      NULL,       NULL,                   1<<2,         0,                0,           -1 },
     { "Zeal",                   NULL,       NULL,                   1<<3,         0,                0,           -1 },
     { "Anki",                   NULL,       NULL,                   1<<3,         0,                0,           -1 },
     { "Darktable",              NULL,       NULL,                   1<<3,         0,                0,           -1 },
     { "Surf",                   NULL,       NULL,                   1<<3,         0,                0,           -1 },
     { "Notion",                 NULL,       NULL,                   1<<4,         0,                0,           -1 },
+    { "notion-app",             NULL,       NULL,                   1<<4,         0,                0,           -1 },
+    { "Spotify",                NULL,       NULL,                   1<<4,         0,                0,           -1 },
     { "transmission",           NULL,       NULL,                   1<<4,         0,                0,           -1 },
     { "VirtualBox Machine",     NULL,       NULL,                   1<<4,         0,                0,           -1 },
     { "VirtualBox Manager",     NULL,       NULL,                   1<<4,         0,                0,           -1 },
@@ -62,9 +66,6 @@ static const Rule rules[] = {
     { "Rhythmbox",              NULL,       NULL,                   0,            1,                1,           -1 },
     /* class                    instance    title                   tags mask     0,                isfloating  isterminal  noswallow  monitor */
     { "vlc",                    NULL,       NULL,                   1<<4,         0,                0,          0,          -1,        -1 },
-    { "QuiteRss",               NULL,       NULL,                   1<<4,         0,                0,          0,          -1,        -1 },
-    { "quiterss",               NULL,       NULL,                   1<<4,         0,                0,          0,          -1,        -1 },
-    { "Com.gitlab.newsflash",   NULL,       NULL,                   1<<2,         0,                0,          0,          -1,        -1 },
     { "sxiv",                   NULL,       NULL,                   0,            0,                0,          0,          -1,        -1 },
     { "mpv",                    NULL,       NULL,                   0,            0,                0,          0,          -1,        -1 },
     { "St",                     NULL,       NULL,                   0,            0,                0,          1,          -1,        -1 },
@@ -143,7 +144,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[8]} }, // bstack
 	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[1]} }, // ?floating
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, // monocle
-	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[9]} }, // deck
+	{ MODKEY,                       XK_d,      setlayout,      {.v = &layouts[9]} }, // deck
 	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[4]} }, // centeredmaster
 	{ MODKEY|ShiftMask,             XK_i,      setlayout,      {.v = &layouts[5]} }, // centeredfloatingmaster
 	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[6]} }, // spiral
