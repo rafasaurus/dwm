@@ -13,7 +13,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[] = { "Fira Code:size=9.5", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
+static const char *fonts[] = { "Fira Code:size=11", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=10.8";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
@@ -51,6 +51,7 @@ static const Rule rules[] = {
     { "Nightly",                NULL,       NULL,                   1<<1,         0,                0,           -1 },
     { "TelegramDesktop",        NULL,       NULL,                   1<<2,         0,                0,           -1 },
     { "KotatogramDesktop",      NULL,       NULL,                   1<<2,         0,                0,           -1 },
+    { "Signal",                 NULL,       NULL,                   1<<2,         0,                0,           -1 },
     { "Zeal",                   NULL,       NULL,                   1<<3,         0,                0,           -1 },
     { "Anki",                   NULL,       NULL,                   1<<3,         0,                0,           -1 },
     { "Darktable",              NULL,       NULL,                   1<<3,         0,                0,           -1 },
@@ -132,8 +133,8 @@ static Key keys[] = {
 	// { MODKEY|ShiftMask,             XK_w,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_s,      incrgaps,       {.i = +13 } },
-	{ MODKEY|ShiftMask,             XK_s,      incrgaps,       {.i = -13 } },
+	{ MODKEY,                       XK_s,      incrgaps,       {.i = +15 } },
+	{ MODKEY|ShiftMask,             XK_s,      incrgaps,       {.i = -15 } },
 	{ MODKEY,                       XK_z,      incrgaps,       {.i = +10 } },
 	{ MODKEY|ShiftMask,             XK_z,      incrgaps,       {.i = -10 } },
 	{ MODKEY,                       XK_g,      togglegaps,     {0} },
@@ -171,7 +172,7 @@ static Key keys[] = {
 	// TAGKEYS(                        XK_7,                      6)
 	// TAGKEYS(                        XK_8,                      7)
 	// TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_F2,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY,                       XK_quoteleft, scratchpad_show,  {0} },
 	{ MODKEY|ShiftMask,             XK_quoteleft, scratchpad_hide,  {0} },
 	{ MODKEY,                       XK_equal, scratchpad_remove,{0} },
