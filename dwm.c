@@ -924,7 +924,9 @@ drawbar(Monitor *m)
     char *tp = stext;
     int tx = 0;
     char ctmp;
-	Client *c;
+    Client *c;
+    if (!m->showbar)
+        return;
 
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
