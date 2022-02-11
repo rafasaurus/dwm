@@ -63,7 +63,9 @@ static const Rule rules[] = {
     { "VirtualBox Machine",     NULL,       NULL,                   1<<4,         0,                0,           -1 },
     { "VirtualBox Manager",     NULL,       NULL,                   1<<4,         0,                0,           -1 },
     { "jetbrains-studio",       NULL,       NULL,                   1<<4,         0,                0,           -1 },
+    { NULL,                     NULL,       "VP",                   1<<4,         1,                1,           -1 },
     { "rhythmbox",              NULL,       NULL,                   0,            1,                0,           -1 },
+    { "QtPass",                 NULL,       NULL,                   0,            1,                1,           -1 },
     { "Rhythmbox",              NULL,       NULL,                   0,            1,                1,           -1 },
     { "Mavproxy",               NULL,       NULL,                   1<<3,         0,                1,           -1 },
     /* class                    instance    title                   tags mask     0,                isfloating  isterminal  noswallow  monitor */
