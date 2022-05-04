@@ -13,7 +13,8 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[] = { "Fira Code:size=11", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
+// static const char *fonts[] = { "Fira Code:size=11", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
+static const char *fonts[] = { "ComicCode-Bold:size=10.5", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=10.8";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
@@ -80,6 +81,8 @@ static const Rule rules[] = {
     { "Cpupower-gui",           NULL,       NULL,                   0,            1,                1,          -1,          -1,        -1 },
     { NULL,                     "popup",    NULL,                   0,            1,                1,          1,          -1,        -1 },
     { "wmbubble",               NULL,       NULL,                   0,            1,                1,          1,          -1,        -1 },
+    { "wmforecast",             NULL,       NULL,                   0,            1,                1,          1,          -1,        -1 },
+    { "wmfishtime",             NULL,       NULL,                   0,            1,                1,          1,          -1,        -1 },
 };
 
 /* layout(s) */
