@@ -14,7 +14,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
 // static const char *fonts[] = { "Fira Code:size=11", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
-static const char *fonts[] = { "ComicCode-Bold:size=10.5", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
+static const char *fonts[] = { "ComicCode-Bold:size=8.5", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=10.8";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
@@ -144,7 +144,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_z,      incrgaps,       {.i = -10 } },
 	{ MODKEY,                       XK_g,      togglegaps,     {0} },
 	// { MODKEY|ShiftMask,             XK_t,      defaultgaps,    {0} },
-	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
+	{ MODKEY|ShiftMask,             XK_w,     xrdb,           {.v = NULL } },
 	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {1} },
