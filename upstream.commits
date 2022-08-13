@@ -1,0 +1,27 @@
+https://git.suckless.org/dwm/commit/60e9a14998bfe8666c641f7c27fec18e85ac7494.html
+
+commit 60e9a14998bfe8666c641f7c27fec18e85ac7494
+parent d39e2f3441fe18aba8d1a62c08918a411ec6f237
+Author: NRK <nrk@disroot.org>
+Date:   Fri, 11 Mar 2022 20:40:05 +0600
+
+fix mem leak in cleanup()
+
+maybe leak isn't the best word, given that the object lives for the
+entire duration of the program's lifetime.
+
+however, all elements of scheme are free-ed, can't think of any reason
+why scheme itself should be an exception.
+
+Diffstat:
+M	dwm.c	|	1	+
+1 file changed, 1 insertion(+), 0 deletions(-)
+diff --git a/dwm.c b/dwm.c
+@@ -487,6 +487,7 @@ cleanup(void)
+ 		drw_cur_free(drw, cursor[i]);
+ 	for (i = 0; i < LENGTH(colors); i++)
+ 		free(scheme[i]);
++	free(scheme);
+ 	XDestroyWindow(dpy, wmcheckwin);
+ 	drw_free(drw);
+ 	XSync(dpy, False);
