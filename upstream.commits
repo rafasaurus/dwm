@@ -6,3 +6,4 @@ commit: a4771de5ba54a38b062a7d748635f21c141b5c7e message: "Revert "manage: For i
 commit: 8b48e309735f5fe49d35f86e967f4b5dea2a2f2d message: "manage: Make sure c->isfixed is applied before floating checks"
 commit: 786f6e2a6f8466ad94706781bc93bc6eb6e69512 message: "unmanage: stop listening for events for unmanaged windows"
 commit: 5b2e5e7a4001479e4dc3e245f96e49f7ea0da658 message: "spawn: reduce 2 lines, change fprintf() + perror() + exit() to die("... :")"
+commit: a859676ead17017bbe81b4989b2f2e0b00a0b4ba message: "Simplify client y-offset correction"
