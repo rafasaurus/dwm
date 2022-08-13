@@ -3,3 +3,4 @@ commit: bece862a0fc4fc18ef9065b18cd28e2032d0d975 message: "manage: For isfloatin
 commit: 8806b6e2379372900e3d9e0bf6604bc7f727350b message: "manage: propertynotify: Reduce cost of unused size hints"
 commit: d93ff48803f04f1363bf303af1d7e6ccc5cb8d3f message: "Update monitor positions also on removal"
 commit: a4771de5ba54a38b062a7d748635f21c141b5c7e message: "Revert "manage: For isfloating/oldstate check/set, ensure trans client actually exists""
+commit: 8b48e309735f5fe49d35f86e967f4b5dea2a2f2d message: "manage: Make sure c->isfixed is applied before floating checks"
