@@ -1,2 +1,3 @@
 commit: 60e9a14998bfe8666c641f7c27fec18e85ac7494 message: "fix mem leak in cleanup()"
 commit: bece862a0fc4fc18ef9065b18cd28e2032d0d975 message: "manage: For isfloating/oldstate check/set, ensure trans client actually exists"
+commit: 8806b6e2379372900e3d9e0bf6604bc7f727350b message: "manage: propertynotify: Reduce cost of unused size hints"
