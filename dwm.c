@@ -2946,7 +2946,9 @@ main(int argc, char *argv[])
         die("dwm: cannot get xcb connection\n");
 	checkotherwm();
     XrmInitialize();
+#ifdef USE_XRDB
     loadxrdb();
+#endif
     setup();
 #ifdef __OpenBSD__
 	if (pledge("stdio rpath proc exec", NULL) == -1)
