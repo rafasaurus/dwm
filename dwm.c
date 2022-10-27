@@ -307,7 +307,7 @@ pid_t dwmblockspid = 0;
 static int scanner;
 static int screen;
 static int sw, sh;           /* X display screen geometry width, height */
-static int bh, blw = 0;      /* bar geometry */
+static int bh;      /* bar geometry */
 static int lrpad;            /* sum of left and right padding for text */
 static int (*xerrorxlib)(Display *, XErrorEvent *);
 static unsigned int numlockmask = 0;
@@ -590,7 +590,7 @@ buttonpress(XEvent *e)
 		if (i < LENGTH(tags)) {
 			click = ClkTagBar;
 			arg.ui = 1 << i;
-		} else if (ev->x < x + blw)
+		} else if (ev->x < x + TEXTW(selmon->ltsymbol))
 			click = ClkLtSymbol;
 		/* 2px right padding */
 		else if (ev->x > (x_previous = x, x = selmon->ww - (int)TEXTW(stext) + lrpad - 2)) {
@@ -613,7 +613,7 @@ buttonpress(XEvent *e)
 			}
 		} else {
             x = x_previous;
-			x += blw;
+			x += TEXTW(selmon->ltsymbol);
 			c = m->clients;
 
 			do {
@@ -967,7 +967,7 @@ drawbar(Monitor *m)
 				urg & 1 << i);
 		x += w;
 	}
-	w = blw = TEXTW(m->ltsymbol);
+	w = TEXTW(m->ltsymbol);
 	drw_setscheme(drw, scheme[SchemeNorm]);
 	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
 
