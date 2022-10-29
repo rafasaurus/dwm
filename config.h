@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 20;       /* vert inner gap between windows */
@@ -65,7 +65,8 @@ static const Rule rules[] = {
     { "VirtualBox Machine",     NULL,       NULL,                   1<<4,         0,                0,           -1 },
     { "VirtualBox Manager",     NULL,       NULL,                   1<<4,         0,                0,           -1 },
     { "jetbrains-studio",       NULL,       NULL,                   1<<4,         0,                0,           -1 },
-    { NULL,                     NULL,       "VP",                   1<<4,         1,                1,           -1 },
+    { NULL,                     NULL,       "VP",                   1<<3,         1,                1,           -1 },
+    { "Synergy",                NULL,       NULL,                   1<<4,         0,                0,           -1 },
     { "rhythmbox",              NULL,       NULL,                   0,            1,                0,           -1 },
     { "QtPass",                 NULL,       NULL,                   0,            1,                1,           -1 },
     { "Rhythmbox",              NULL,       NULL,                   0,            1,                1,           -1 },
@@ -127,7 +128,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *layoutmenu_cmd = "layoutmenu.sh";
 
 #include <X11/XF86keysym.h>
-static Key keys[] = {
+static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
@@ -188,7 +189,7 @@ static Key keys[] = {
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
-static Button buttons[] = {
+static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
     { ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
 	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
