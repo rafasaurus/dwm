@@ -1136,7 +1136,8 @@ focusstack(const Arg *arg)
 					c = i;
 	}
 	if (c) {
-		focus(c);
+        if (strcmp(c->name, "wmbubble"))
+            focus(c);
 		restack(selmon);
 	}
 }
