@@ -44,12 +44,12 @@ install: all
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
-	sudo cp layoutmenu.sh /usr/bin
+	cp layoutmenu.sh /usr/bin
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
 	rm -f /usr/share/xsessions/dwm.desktop
-	sudo rm /usr/bin/layoutmenu.sh
+	rm /usr/bin/layoutmenu.sh
 
 .PHONY: all options clean dist install uninstall

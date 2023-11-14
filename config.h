@@ -35,7 +35,7 @@ static const unsigned int alphas[][3] = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
-// #define USE_XRDB
+//#define USE_XRDB
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5" };
@@ -78,11 +78,12 @@ static const Rule rules[] = {
     { "St",                     NULL,       NULL,                   0,            0,                0,          1,          -1,        -1 },
     { "Chromium",               NULL,       NULL,                   1<<1,         0,                0,          -1,          1,        -1 },
     { "Brave-browser",          NULL,       NULL,                   1<<1,         0,                0,          -1,          1,        -1 },
-    { "QGroundControl",         NULL,       NULL,                   1<<3,         0,                0,          -1,          -1,        -1 },
-    { "XTerm",                  NULL,       NULL,                   1<<4,         0,                0,          -1,          -1,        -1 },
-    { "Cpupower-gui",           NULL,       NULL,                   0,            1,                1,          -1,          -1,        -1 },
+    { "QGroundControl",         NULL,       NULL,                   1<<3,         0,                0,          -1,         -1,        -1 },
+    { "XTerm",                  NULL,       NULL,                   1<<4,         0,                0,          -1,         -1,        -1 },
+    { "Cpupower-gui",           NULL,       NULL,                   0,            1,                1,          -1,         -1,        -1 },
     { NULL,                     "popup",    NULL,                   0,            1,                1,          1,          -1,        -1 },
-    { "wmbubble",               NULL,       NULL,                   0,            1,                1,          1,          -1,        -1 },
+    { "wmbubble",               NULL,       NULL,                   0,            1,                1,          -1,         -1,        -1 },
+    { "Pavucontrol",            NULL,       NULL,                   0,            1,                1,          -1,         -1,        -1 },
     { "shermans_applet",        NULL,       NULL,                   0,            1,                1,          1,          -1,        -1 },
     { "wmforecast",             NULL,       NULL,                   0,            1,                1,          1,          -1,        -1 },
     { "wmfishtime",             NULL,       NULL,                   0,            1,                1,          1,          -1,        -1 },
