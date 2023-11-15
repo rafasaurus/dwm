@@ -35,7 +35,7 @@ static const unsigned int alphas[][3] = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
-//#define USE_XRDB
+#define USE_XRDB
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5" };
@@ -138,8 +138,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	// { MODKEY,                       XK_w,      incnmaster,     {.i = +1 } },
-	// { MODKEY|ShiftMask,             XK_w,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_w,      incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_w,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_s,      incrgaps,       {.i = +15 } },
@@ -147,7 +147,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_z,      incrgaps,       {.i = +10 } },
 	{ MODKEY|ShiftMask,             XK_z,      incrgaps,       {.i = -10 } },
 	{ MODKEY,                       XK_g,      togglegaps,     {0} },
-	// { MODKEY|ShiftMask,             XK_t,      defaultgaps,    {0} },
+	{ MODKEY|ShiftMask,             XK_g,      defaultgaps,    {0} },
 #ifdef USE_XRDB
 	{ MODKEY|ShiftMask,             XK_w,     xrdb,           {.v = NULL } },
 #endif

@@ -2270,7 +2270,7 @@ togglewin(const Arg *arg)
 {
 	Client *c = (Client*)arg->v;
 	/* if (c == selmon->sel) */
-	/* 	hide(c); */
+	hide(c);
 	/* else { */
     if (HIDDEN(c))
         show(c);
