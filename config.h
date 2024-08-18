@@ -8,14 +8,14 @@ static const unsigned int gappiv    = 20;       /* vert inner gap between window
 static const unsigned int gappoh    = 20;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 20;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
-static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
 // static const char *fonts[] = { "Fira Code:size=11", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
-static const char *fonts[] = { "ComicCode-Bold:size=8.5", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
-static const char dmenufont[]       = "monospace:size=10.8";
+static const char *fonts[] = { "ComicCode:size=9.5", "JoyPixels:pixelsize=15:antialias=true:autohint=true" };
+static const char dmenufont[]       = "ComicCode-Bold:size=11";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
 static char normbgcolor[]           = "#222222";
@@ -52,12 +52,15 @@ static const Rule rules[] = {
     { "Firefox",                NULL,       "Firefox Preferences",  0,            0,                1,           -1 },
     { "Nightly",                NULL,       NULL,                   1<<1,         0,                0,           -1 },
     { "TelegramDesktop",        NULL,       NULL,                   1<<2,         0,                0,           -1 },
+    { "dino",                   NULL,       NULL,                   1<<2,         0,                0,           -1 },
     { "KotatogramDesktop",      NULL,       NULL,                   1<<2,         0,                0,           -1 },
     { "Signal",                 NULL,       NULL,                   1<<2,         0,                0,           -1 },
     { "Zeal",                   NULL,       NULL,                   1<<3,         0,                0,           -1 },
     { "Anki",                   NULL,       NULL,                   1<<3,         0,                0,           -1 },
     { "Darktable",              NULL,       NULL,                   1<<3,         0,                0,           -1 },
     { "Surf",                   NULL,       NULL,                   1<<3,         0,                0,           -1 },
+    { "obsidian",               NULL,       NULL,                   1<<3,         0,                0,           -1 },
+    { "MATLAB R2024a",          NULL,       NULL,                   1<<3,         0,                0,           -1 },
     { "Notion",                 NULL,       NULL,                   1<<4,         0,                0,           -1 },
     { "notion-app",             NULL,       NULL,                   1<<4,         0,                0,           -1 },
     { "Spotify",                NULL,       NULL,                   1<<4,         1,                1,           -1 },
@@ -67,9 +70,13 @@ static const Rule rules[] = {
     { "jetbrains-studio",       NULL,       NULL,                   1<<4,         0,                0,           -1 },
     { NULL,                     NULL,       "VP",                   1<<3,         1,                1,           -1 },
     { "Synergy",                NULL,       NULL,                   1<<4,         0,                0,           -1 },
+    { "APM Planner",            NULL,       NULL,                   1<<4,         0,                0,           -1 },
+    { "Google Earth Pro",       NULL,       NULL,                   1<<4,         0,                0,           -1 },
+    { "Barrier",                NULL,       NULL,                   1<<4,         0,                0,           -1 },
     { "rhythmbox",              NULL,       NULL,                   0,            1,                0,           -1 },
     { "QtPass",                 NULL,       NULL,                   0,            1,                1,           -1 },
     { "Rhythmbox",              NULL,       NULL,                   0,            1,                1,           -1 },
+    { "Pcmanfm",                NULL,       NULL,                   0,            1,                1,           -1 },
     { "Mavproxy",               NULL,       NULL,                   1<<3,         0,                1,           -1 },
     /* class                    instance    title                   tags mask     0,                isfloating  isterminal  noswallow  monitor */
     { "vlc",                    NULL,       NULL,                   1<<4,         0,                0,          0,          -1,        -1 },
