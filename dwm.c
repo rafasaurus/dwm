@@ -2079,17 +2079,21 @@ void
 sigdwmblocks(const Arg *arg)
 {
     union sigval sv;
-    sv.sival_int = (dwmblockssig << 8) | arg->i;
     if (!dwmblockspid)
         if (getdwmblockspid() == -1)
             return;
+    sv.sival_int = (dwmblockssig << 8) | arg->i;
 
+#if 1 // Support for https://github.com/UtkarshVerma/dwmblocks-async
+    sigqueue(dwmblockspid, SIGRTMIN+dwmblockssig, sv);
+#else
     if (sigqueue(dwmblockspid, SIGUSR1, sv) == -1) {
         if (errno == ESRCH) {
             if (!getdwmblockspid())
                 sigqueue(dwmblockspid, SIGUSR1, sv);
         }
     }
+#endif
 }
 
 
