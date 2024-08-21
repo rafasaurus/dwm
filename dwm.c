@@ -2079,9 +2079,8 @@ void
 sigdwmblocks(const Arg *arg)
 {
     union sigval sv;
-    if (!dwmblockspid)
-        if (getdwmblockspid() == -1)
-            return;
+    if (getdwmblockspid() == -1)
+        return;
     sv.sival_int = (dwmblockssig << 8) | arg->i;
 
 #if 1 // Support for https://github.com/UtkarshVerma/dwmblocks-async
