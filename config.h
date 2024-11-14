@@ -13,7 +13,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[] = { "Charcoal:size=12", "twemoji:pixelsize=13:antialias=true:autohint=true" };
+static const char *fonts[] = { "Charcoal:size=12", "twemoji:pixelsize=13:antialias=true:autohint=true", "Font Awesome 5 Brands:size=10", "FontAwesome:size=10", "Font Awesome 5 Free:size=10", "Font Awesome 5 Free Regular:size=10" };
 static const char dmenufont[]       = "Charcoal:size=12";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
