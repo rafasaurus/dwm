@@ -13,16 +13,20 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[] = { "Charcoal:size=12", "twemoji:pixelsize=13:antialias=true:autohint=true", "Font Awesome 5 Brands:size=10", "FontAwesome:size=10", "Font Awesome 5 Free:size=10", "Font Awesome 5 Free Regular:size=10" };
-static const char dmenufont[]       = "Charcoal:size=12";
+static const char *fonts[] = { "Charcoal:size=12:antialias=true:autohint=true", "twemoji:pixelsize=13:antialias=true:autohint=true", "Font Awesome 5 Brands:size=10", "FontAwesome:size=10", "Font Awesome 5 Free:size=10", "Font Awesome 5 Free Regular:size=10" };
+static const char dmenufont[]       = "Charcoal:size=12:antialias=true:autohint=true";
 static const unsigned int baralpha = 0xff;
 static const unsigned int borderalpha = OPAQUE;
-static char normbgcolor[]           = "#222222";
+static char normbgcolor[]           = "#1C1021";
+// static char normbgcolor[]           = "#2E3440";
 static char normbordercolor[]       = "#333333";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#005577";
-static char selbgcolor[]            = "#005577";
+static char selbordercolor[]        = "#4F335F";
+static char selbgcolor[]            = "#2F133F";
+// static char selbordercolor[]        = "#3B4252";
+// static char selbgcolor[]            = "#3B4252";
+
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -34,7 +38,7 @@ static const unsigned int alphas[][3] = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
-#define USE_XRDB
+// #define USE_XRDB
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5" };
